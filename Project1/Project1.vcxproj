@@ -19,25 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\IndexBuffer.cpp" />
-    <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Renderer.cpp" />
-    <ClCompile Include="Source\Shader.cpp" />
-    <ClCompile Include="Source\Util\fps_counter.cpp" />
-    <ClCompile Include="Source\VertexArray.cpp" />
-    <ClCompile Include="Source\VertexBuffer.cpp" />
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Res\Shaders\Basic.shader" />
+    <ClInclude Include="Conf\root_directory.h" />
+    <ClInclude Include="Source\camera.h" />
+    <ClInclude Include="Source\filesystem.h" />
+    <ClInclude Include="Source\root_directory.h" />
+    <ClInclude Include="Source\shader_s.h" />
+    <ClInclude Include="Source\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\IndexBuffer.h" />
-    <ClInclude Include="Source\Shader.h" />
-    <ClInclude Include="Source\Util\fps_counter.h" />
-    <ClInclude Include="Source\VertexBuffer.h" />
-    <ClInclude Include="Source\Renderer.h" />
-    <ClInclude Include="Source\VertexArray.h" />
-    <ClInclude Include="Source\VertexBufferLayout.h" />
+    <None Include="Resources\Shader\shader.fs" />
+    <None Include="Resources\Shader\shader.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Textures\awesomeface.png" />
+    <Image Include="Resources\Textures\container.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -120,12 +120,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;GLEW_STATIC;MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)dep\GLFW\include;$(SolutionDir)dep\SFML\include;$(SolutionDir)dep\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dep\GLFW\include;$(SolutionDir)dep\GLAD\include;$(SolutionDir)dep\SFML\include;$(SolutionDir)dep\GLM;$(SolutionDir)dep\GLEW\include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)dep\GLEW\lib\Release\x64;$(SolutionDir)dep\GLFW\lib-vc2019;$(SolutionDir)dep\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)dep\GLEW\lib\Release\x64;$(SolutionDir)dep\GLFW\lib-vc2019;$(SolutionDir)dep\GLM;$(SolutionDir)dep\SFML\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;sfml-system.lib;winmm.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -153,14 +154,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;GLEW_STATIC;MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)dep\GLFW\include;$(SolutionDir)dep\SFML\include;$(SolutionDir)dep\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)dep\GLFW\include;$(SolutionDir)dep\GLAD\include;$(SolutionDir)dep\SFML\include;$(SolutionDir)dep\GLM;$(SolutionDir)dep\GLEW\include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)dep\GLEW\lib\Release\x64;$(SolutionDir)dep\GLFW\lib-vc2019;$(SolutionDir)dep\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)dep\GLEW\lib\Release\x64;$(SolutionDir)dep\GLFW\lib-vc2019;$(SolutionDir)dep\GLM;$(SolutionDir)dep\SFML\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;sfml-system.lib;winmm.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
