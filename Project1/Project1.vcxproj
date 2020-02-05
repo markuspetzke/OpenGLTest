@@ -21,23 +21,25 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="Source\Main.cpp" />
-    <ClCompile Include="Source\stb_image.cpp" />
+    <ClCompile Include="Utils\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Conf\root_directory.h" />
-    <ClInclude Include="Source\camera.h" />
-    <ClInclude Include="Source\filesystem.h" />
-    <ClInclude Include="Source\root_directory.h" />
-    <ClInclude Include="Source\shader_s.h" />
-    <ClInclude Include="Source\stb_image.h" />
+    <ClInclude Include="Renderer\Model\model.h" />
+    <ClInclude Include="Source\mesh.h" />
+    <ClInclude Include="Source\Texture.h" />
+    <ClInclude Include="Utils\camera.h" />
+    <ClInclude Include="Utils\filesystem.h" />
+    <ClInclude Include="Utils\root_directory.h" />
+    <ClInclude Include="Resources\Shader\shader_s.h" />
+    <ClInclude Include="Utils\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shader\shader.fs" />
     <None Include="Resources\Shader\shader.vs" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\Textures\awesomeface.png" />
-    <Image Include="Resources\Textures\container.jpg" />
+    <Image Include="Resources\Textures\Gras.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

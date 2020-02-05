@@ -21,27 +21,36 @@
     <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\stb_image.cpp">
+    <ClCompile Include="Utils\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\shader_s.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\filesystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Conf\root_directory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\root_directory.h">
+    <ClInclude Include="Source\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\camera.h">
+    <ClInclude Include="Source\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Model\model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\Shader\shader_s.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\filesystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\root_directory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,10 +59,7 @@
     <None Include="Resources\Shader\shader.vs" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\Textures\awesomeface.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\Textures\container.jpg">
+    <Image Include="Resources\Textures\Gras.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
