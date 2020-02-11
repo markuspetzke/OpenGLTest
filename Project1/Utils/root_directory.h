@@ -1,2 +1,2 @@
 #pragma once
-const char* logl_root = "${CMAKE_SOURCE_DIR}";
+const char* logl_root = "D:/Code/repos/Project1/Project1";

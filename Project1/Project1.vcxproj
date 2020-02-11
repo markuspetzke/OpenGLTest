@@ -26,7 +26,7 @@
   <ItemGroup>
     <ClInclude Include="Conf\root_directory.h" />
     <ClInclude Include="Renderer\Model\model.h" />
-    <ClInclude Include="Source\mesh.h" />
+    <ClInclude Include="Renderer\skybox.h" />
     <ClInclude Include="Source\Texture.h" />
     <ClInclude Include="Utils\camera.h" />
     <ClInclude Include="Utils\filesystem.h" />
@@ -35,6 +35,8 @@
     <ClInclude Include="Utils\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Shader\cube.fs" />
+    <None Include="Resources\Shader\cube.vs" />
     <None Include="Resources\Shader\shader.fs" />
     <None Include="Resources\Shader\shader.vs" />
   </ItemGroup>

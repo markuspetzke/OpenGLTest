@@ -7,12 +7,14 @@
 #include "../Utils/camera.h"
 #include "Texture.h"
 #include "../Renderer/Model/model.h"
+#include "../Renderer/skybox.h"
 
 #include <iostream>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+using namespace std;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -75,40 +77,30 @@ int main()
 	// configure global opengl state
 	// -----------------------------
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_STENCIL_TEST);
+	glEnable(GL_BLEND);
+	//glEnable(GL_CULL_FACE);
+
+	//Debugger
+	// -----------------------------
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// build and compile our shader zprogram
 	// ------------------------------------
 	Shader ourShader("Resources/Shader/shader.vs", "Resources/Shader/shader.fs");
 	Block block;
 	Texture text;
-	//BUFFER
-	//---------------
+	Sky sky;
 
-	//generate and Bind Buffer
-	block.genBuffer();
+	block.genBlock();
 
-	//gives Buffer attributes
-	block.attribute();
-
-	//TEXTURE
-	//-------------
-
-	//create Texture
-	text.createTexture();
-
-	// bind Texture
-	text.bindTexture();
-
-	// tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
-	// -------------------------------------------------------------------------------------------
-	ourShader.use(); // don't forget to activate/use the shader before setting uniforms!
-	// either set it manually like so:
-	ourShader.setInt("texture1", 0);
-
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//SKY
+	//--------------------------
+	//sky.genSky();
 
 	// render loop
 	// -----------
+
 	while (!glfwWindowShouldClose(window))
 	{
 		// per-frame time logic
@@ -126,16 +118,13 @@ int main()
 		glClearColor(1.0f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// activate shader
-		ourShader.use();
-
 		// pass projection matrix to shader (note that in this case it could change every frame)
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-		ourShader.setMat4("projection", projection);
 
 		// camera/view transformation
 		glm::mat4 view = camera.GetViewMatrix();
-		ourShader.setMat4("view", view);
+
+		glm::mat4 model = glm::mat4(1.0f);
 
 		for (unsigned int y = 0; y < 1; y++)
 		{
@@ -143,16 +132,16 @@ int main()
 			{
 				for (unsigned int x = 0; x < 1; x++)
 				{
-					// calculate the model matrix for each object and pass it to shader before drawing
-					glm::mat4 model = glm::mat4(1.0f);
 					model = glm::translate(model, glm::vec3(0.5f * x, -0.5f * y, -0.5f * z));
 
-					ourShader.setMat4("model", model);
-
-					glDrawArrays(GL_TRIANGLES, 0, 36);
+					block.drawSky(view, projection, model);
 				}
 			}
 		}
+
+		//view = glm::mat4(glm::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
+		//sky.drawSky(view, projection);
+
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
 		glfwSwapBuffers(window);

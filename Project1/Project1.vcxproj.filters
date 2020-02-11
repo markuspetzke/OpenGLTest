@@ -32,9 +32,6 @@
     <ClInclude Include="Source\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\mesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer\Model\model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -53,10 +50,15 @@
     <ClInclude Include="Utils\root_directory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Renderer\skybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shader\shader.fs" />
     <None Include="Resources\Shader\shader.vs" />
+    <None Include="Resources\Shader\cube.vs" />
+    <None Include="Resources\Shader\cube.fs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\Gras.png">
